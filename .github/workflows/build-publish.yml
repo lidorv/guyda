@@ -19,7 +19,7 @@ jobs:
          uses: actions/setup-node@v3
            
        - name: Set CLI Config
-         run: jf pip-config --global=true --repo-resolve=pypi --repo-deploy=pypi
+         run: jf pip-config --global=true --repo-resolve=pypi
            
        - name: Install Deps
          run: jf pip install
