@@ -35,3 +35,4 @@ jobs:
           jf rt build-add-git
           # Publish build info
           jf rt build-publish
+          
