@@ -16,7 +16,7 @@ jobs:
            JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
            
        - name: Setup Python
-         uses: actions/setup-node@v3
+         uses: actions/setup-python@v4
            
        - name: Set CLI Config
          run: jf pip-config --global=true --repo-resolve=pypi
