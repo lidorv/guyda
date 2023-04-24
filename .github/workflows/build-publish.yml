@@ -15,20 +15,17 @@ jobs:
            JF_URL: ${{ secrets.JF_URL }}
            JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
            
-       - name: Setup Node npm
-         uses: actions/setup-node@v3
-           
        - name: Set CLI Config
-         run: jf npm-config --global=true --repo-resolve=npm --repo-deploy=npm
+         run: jf pip-config --global=true --repo-resolve=pypi
            
        - name: Install Deps
-         run: jf npm install
+         run: jf pip install .
            
-       - name: Run tests
-         run: npm test
+       - name: Package the project
+         run: python setup.py sdist bdist_wheel
          
        - name: Publish
-         run: jf npm publish
+         run: jf rt upload dist/ pypi/
          
        - name: Publish Build info With JFrog CLI
          run: |
