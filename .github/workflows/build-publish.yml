@@ -19,7 +19,9 @@ jobs:
          run: jf pip-config --global=true --repo-resolve=pypi
            
        - name: Install Deps
-         run: jf pip install .
+         run: |
+          pip install --upgrade pip
+          jf pip install .
            
        - name: Package the project
          run: python setup.py sdist bdist_wheel
